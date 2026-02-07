@@ -15,6 +15,7 @@ export default function App() {
   const handleSceneSelect = (scene: Scene) => {
     setSelectedScene(scene)
     setView('scene')
+    window.scrollTo({ top: 0 })
   }
 
   const handleBack = () => {
@@ -23,25 +24,55 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface grain">
       {view === 'home' && (
         <>
           <Hero onExplore={() => document.getElementById('scenes')?.scrollIntoView({ behavior: 'smooth' })} />
 
-          <div id="scenes" className="max-w-5xl mx-auto px-6 py-16">
-            <h2 className="font-display text-3xl md:text-4xl text-white mb-3">Pick a scene</h2>
-            <p className="text-zinc-400 mb-10 text-lg">Each scene sets the mood. You pick the language and voice.</p>
+          {/* Divider */}
+          <div className="max-w-6xl mx-auto px-8">
+            <div className="h-px bg-gradient-to-r from-transparent via-warm-700/30 to-transparent" />
+          </div>
+
+          <section id="scenes" className="max-w-6xl mx-auto px-8 py-24">
+            <div className="mb-16">
+              <p className="font-body text-warm-500 text-xs uppercase tracking-[0.2em] mb-4">Choose Your Moment</p>
+              <h2 className="font-display text-4xl md:text-5xl text-warm-50 font-light leading-tight">
+                Pick a scene
+              </h2>
+              <p className="text-stone-500 mt-4 max-w-lg text-[15px] leading-relaxed">
+                Each scene carries its own emotion. You choose the language and voice — and the same words transform.
+              </p>
+            </div>
             <SceneSelector scenes={scenes} onSelect={handleSceneSelect} />
+          </section>
+
+          {/* Divider */}
+          <div className="max-w-6xl mx-auto px-8">
+            <div className="h-px bg-gradient-to-r from-transparent via-warm-700/30 to-transparent" />
           </div>
 
-          <div className="max-w-5xl mx-auto px-6 py-16 border-t border-white/5">
-            <h2 className="font-display text-3xl md:text-4xl text-white mb-3">The 11-Language Relay</h2>
-            <p className="text-zinc-400 mb-10 text-lg">One phrase. Eleven languages. Hit play and listen to it cascade across India.</p>
+          <section className="max-w-6xl mx-auto px-8 py-24">
+            <div className="mb-16">
+              <p className="font-body text-warm-500 text-xs uppercase tracking-[0.2em] mb-4">The Cascade</p>
+              <h2 className="font-display text-4xl md:text-5xl text-warm-50 font-light leading-tight">
+                The 11-Language Relay
+              </h2>
+              <p className="text-stone-500 mt-4 max-w-lg text-[15px] leading-relaxed">
+                One phrase. Eleven languages. Hit play and listen to the same thought ripple across India.
+              </p>
+            </div>
             <LanguageRelay />
-          </div>
+          </section>
 
-          <footer className="text-center py-12 text-zinc-600 text-sm">
-            Powered by <a href="https://sarvam.ai" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">Sarvam AI</a> Bulbul TTS
+          <footer className="max-w-6xl mx-auto px-8 py-16">
+            <div className="h-px bg-gradient-to-r from-transparent via-warm-700/20 to-transparent mb-12" />
+            <div className="flex items-center justify-between">
+              <p className="font-display text-lg text-warm-800 italic">Say It In India</p>
+              <p className="text-stone-600 text-xs tracking-wider">
+                Powered by <a href="https://sarvam.ai" target="_blank" rel="noopener noreferrer" className="text-warm-600 hover:text-warm-400 transition-colors duration-500">Sarvam AI</a> Bulbul TTS
+              </p>
+            </div>
           </footer>
         </>
       )}
