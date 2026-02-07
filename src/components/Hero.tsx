@@ -30,22 +30,22 @@ export function Hero({ onExplore }: HeroProps) {
   const phrase = hookPhrases[phraseIndex]
 
   return (
-    <section className="min-h-[90vh] flex flex-col items-center justify-center px-8 relative overflow-hidden">
+    <section className="min-h-[85vh] sm:min-h-[90vh] flex flex-col items-center justify-center px-5 sm:px-8 relative overflow-hidden">
       {/* Ambient background orbs */}
-      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-warm-600/[0.04] rounded-full blur-[120px] animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-warm-400/[0.03] rounded-full blur-[100px] animate-float" style={{ animationDelay: '-3s' }} />
+      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-warm-300/[0.06] rounded-full blur-[120px] animate-float" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-warm-200/[0.08] rounded-full blur-[100px] animate-float" style={{ animationDelay: '-3s' }} />
 
       {/* Subtle decorative line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent to-warm-700/20" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent to-warm-300/30" />
 
       <div className="relative z-10 text-center max-w-4xl stagger-children">
-        <p className="font-body text-warm-500 text-xs uppercase tracking-[0.3em] mb-10">
+        <p className="font-body text-warm-700 text-sm uppercase tracking-[0.3em] mb-10 font-medium">
           Say It In India
         </p>
 
         <div className="relative min-h-[160px] md:min-h-[200px] flex items-center justify-center mb-8">
           <h1
-            className="font-display text-[2.75rem] md:text-[4rem] lg:text-[4.75rem] text-warm-50 font-light leading-[1.1] tracking-tight transition-all duration-600"
+            className="font-display text-[2.75rem] md:text-[4rem] lg:text-[4.75rem] text-warm-900 font-light leading-[1.1] tracking-tight transition-all duration-600"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? 'translateY(0)' : 'translateY(12px)',
@@ -58,35 +58,35 @@ export function Hero({ onExplore }: HeroProps) {
 
         {/* Rotating native script preview */}
         <div
-          className="mb-12 h-10 flex items-center justify-center gap-4"
+          className="mb-12 h-10 flex items-center justify-center gap-3 sm:gap-4"
           style={{
-            opacity: visible ? 0.5 : 0,
+            opacity: visible ? 0.6 : 0,
             transition: 'opacity 0.4s ease',
           }}
         >
-          <span className="text-warm-500/60 text-xs tracking-wider uppercase">{phrase.scriptLang}</span>
-          <span className="w-6 h-px bg-warm-700/40" />
-          <span className="font-display text-warm-300/40 text-xl italic">{phrase.script}</span>
+          <span className="text-warm-700 text-sm tracking-wider uppercase font-semibold">{phrase.scriptLang}</span>
+          <span className="w-6 h-px bg-warm-500" />
+          <span className="font-display text-warm-700 text-2xl italic">{phrase.script}</span>
         </div>
 
-        <p className="text-stone-500 text-base md:text-lg mb-14 max-w-xl mx-auto leading-relaxed font-light">
+        <p className="text-warm-600 text-base md:text-lg mb-14 max-w-xl mx-auto leading-relaxed font-light">
           Hear your words come alive in 11 Indian languages, 30+ voices, and countless emotions.
         </p>
 
         <button
           onClick={onExplore}
-          className="group relative px-10 py-4 rounded-full font-body text-sm tracking-wide overflow-hidden transition-all duration-500"
+          className="group relative px-8 sm:px-10 py-4 rounded-full font-body text-sm tracking-wide overflow-hidden transition-all duration-500"
         >
-          <span className="absolute inset-0 bg-warm-50 rounded-full transition-transform duration-500 group-hover:scale-105" />
-          <span className="relative text-surface font-medium">Start exploring</span>
+          <span className="absolute inset-0 bg-accent rounded-full transition-transform duration-500 group-hover:scale-105" />
+          <span className="relative text-white font-medium">Start exploring</span>
         </button>
 
-        <div className="mt-20 flex items-center justify-center gap-8">
-          <span className="w-12 h-px bg-warm-800/30" />
-          <p className="text-stone-600 text-xs tracking-wider">
+        <div className="mt-14 sm:mt-20 flex items-center justify-center gap-8">
+          <span className="w-12 h-px bg-warm-300/40" />
+          <p className="text-warm-700 text-sm tracking-wider font-semibold">
             scroll to explore
           </p>
-          <span className="w-12 h-px bg-warm-800/30" />
+          <span className="w-12 h-px bg-warm-300/40" />
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
-const API_URL = 'https://api.sarvam.ai/text-to-speech'
+const TTS_API_URL = 'https://api.sarvam.ai/text-to-speech'
+const TRANSLATE_API_URL = 'https://api.sarvam.ai/translate'
 const API_KEY = import.meta.env.VITE_SARVAM_API_KEY
 
 export interface TTSOptions {
@@ -12,7 +13,7 @@ export interface TTSOptions {
 export async function synthesizeSpeech(options: TTSOptions): Promise<string> {
   const { text, languageCode, speaker = 'anushka', pace = 1.0, temperature = 0.6 } = options
 
-  const response = await fetch(API_URL, {
+  const response = await fetch(TTS_API_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -38,6 +39,50 @@ export async function synthesizeSpeech(options: TTSOptions): Promise<string> {
 
   const data = await response.json()
   return data.audios[0] // base64-encoded audio
+}
+
+export async function translateText(
+  text: string,
+  targetLanguageCode: string,
+): Promise<string> {
+  const response = await fetch(TRANSLATE_API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'api-subscription-key': API_KEY,
+    },
+    body: JSON.stringify({
+      input: text,
+      source_language_code: 'auto',
+      target_language_code: targetLanguageCode,
+      model: 'mayura:v1',
+      mode: 'modern-colloquial',
+    }),
+  })
+
+  if (!response.ok) {
+    const err = await response.text()
+    throw new Error(`Translate API error (${response.status}): ${err}`)
+  }
+
+  const data = await response.json()
+  return data.translated_text
+}
+
+// Cache for translations
+const translateCache = new Map<string, string>()
+
+export async function translateWithCache(
+  text: string,
+  targetLanguageCode: string,
+): Promise<string> {
+  const key = `${targetLanguageCode}:${text.slice(0, 100)}`
+  if (translateCache.has(key)) {
+    return translateCache.get(key)!
+  }
+  const translated = await translateText(text, targetLanguageCode)
+  translateCache.set(key, translated)
+  return translated
 }
 
 export function playBase64Audio(base64: string): Promise<HTMLAudioElement> {
