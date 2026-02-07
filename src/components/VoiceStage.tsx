@@ -205,7 +205,7 @@ export function VoiceStage({ scene, onBack }: VoiceStageProps) {
                     <textarea
                       value={customText}
                       onChange={(e) => { setCustomText(e.target.value); setTranslatedText('') }}
-                      placeholder={`Type anything in English — we'll translate and speak it in ${langInfo?.name || 'the selected language'}...`}
+                      placeholder={`Type anything in English — hear it spoken in ${langInfo?.name || 'the selected language'}...`}
                       className="w-full h-32 bg-transparent text-warm-900 text-xl font-display placeholder-warm-600 resize-none focus:outline-none"
                       maxLength={1000}
                     />
@@ -225,7 +225,7 @@ export function VoiceStage({ scene, onBack }: VoiceStageProps) {
               onClick={() => setUseCustom(!useCustom)}
               className="text-sm text-warm-800 hover:text-accent transition-colors duration-300 tracking-wider uppercase font-body font-semibold"
             >
-              {useCustom ? '← Back to preset text' : 'Type your own words →'}
+              {useCustom ? '← Back to preset text' : 'Try your own words →'}
             </button>
 
             {/* Play controls */}
@@ -287,7 +287,7 @@ export function VoiceStage({ scene, onBack }: VoiceStageProps) {
             <div className="pt-6">
               <div className="h-px bg-gradient-to-r from-warm-200 to-transparent mb-6" />
               <p className="text-warm-700 text-sm leading-relaxed max-w-md">
-                Try the same scene in a different language — the emotion stays, the texture changes entirely.
+                Switch the language or voice — same words, completely different feeling.
               </p>
             </div>
           </div>

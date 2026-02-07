@@ -67,12 +67,12 @@ export default function App() {
 
           <section ref={setRef(0)} id="scenes" className="fade-section max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-24">
             <div className="mb-10 sm:mb-16">
-              <p className="font-body text-warm-700 text-sm uppercase tracking-[0.2em] mb-4 font-medium">Choose Your Moment</p>
+              <p className="font-body text-warm-700 text-sm uppercase tracking-[0.2em] mb-4 font-medium">Set the Mood</p>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-warm-900 font-light leading-tight">
                 Pick a scene
               </h2>
               <p className="text-warm-800 mt-4 max-w-lg text-base leading-relaxed">
-                Each scene carries its own emotion. You choose the language and voice — and the same words transform.
+                Every scene has a feeling. Pick one, choose a voice, and hear what emotion sounds like across India.
               </p>
             </div>
             <SceneSelector scenes={scenes} onSelect={handleSceneSelect} />
@@ -87,10 +87,10 @@ export default function App() {
             <div className="mb-10 sm:mb-16">
               <p className="font-body text-warm-700 text-sm uppercase tracking-[0.2em] mb-4 font-medium">The Cascade</p>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-warm-900 font-light leading-tight">
-                The 11-Language Relay
+                One Phrase, Eleven Voices
               </h2>
               <p className="text-warm-800 mt-4 max-w-lg text-base leading-relaxed">
-                One phrase. Eleven languages. Hit play and listen to the same thought ripple across India.
+                The same phrase, spoken in every language. Hit play and hear the texture change with each voice.
               </p>
             </div>
             <LanguageRelay />
@@ -101,7 +101,7 @@ export default function App() {
             <div className="flex items-center justify-between">
               <p className="font-display text-lg text-warm-600 italic">Say It In India</p>
               <p className="text-warm-700 text-sm tracking-wider font-medium">
-                Powered by <a href="https://sarvam.ai" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-hover transition-colors duration-500 font-medium">Sarvam AI</a> Bulbul TTS
+                Voices by <a href="https://sarvam.ai" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-hover transition-colors duration-500 font-medium">Sarvam AI</a> Bulbul v3
               </p>
             </div>
           </footer>

@@ -62,7 +62,7 @@ export function LanguageRelay() {
         const base64 = await synthesizeWithCache({
           text,
           languageCode: lang.code,
-          speaker: 'Shubh',
+          speaker: 'shubh',
           pace: 1.0,
           temperature: 0.6,
         })
@@ -167,7 +167,7 @@ export function LanguageRelay() {
               {useCustom ? (customPhrase || 'Type a phrase above') : `"${selectedPhrase.label}"`}
             </p>
             <p className="text-warm-700 text-sm tracking-wider uppercase font-body font-medium">
-              Press play to hear it cascade across 11 languages
+              Press play to hear one phrase travel across India
             </p>
           </div>
         )}

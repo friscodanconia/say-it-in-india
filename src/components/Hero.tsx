@@ -5,11 +5,11 @@ interface HeroProps {
 }
 
 const hookPhrases = [
-  { question: "How does 'I miss you' sound in Bengali?", script: 'তুমি আমায় খুব মনে পড়ো', scriptLang: 'বাংলা' },
-  { question: "How does 'Good morning' sound in Tamil?", script: 'காலை வணக்கம்', scriptLang: 'தமிழ்' },
-  { question: "How does a bedtime story sound in Hindi?", script: 'एक बार की बात है...', scriptLang: 'हिन्दी' },
-  { question: "How does a love letter sound in Malayalam?", script: 'എനിക്ക് നിന്നെ ഇഷ്ടമാണ്', scriptLang: 'മലയാളം' },
-  { question: "How does 'Welcome' sound in Telugu?", script: 'స్వాగతం', scriptLang: 'తెలుగు' },
+  { question: "A bedtime story, whispered in Hindi", script: 'एक बार की बात है...', scriptLang: 'हिन्दी' },
+  { question: "A love letter, read aloud in Bengali", script: 'তুমি আমায় খুব মনে পড়ো', scriptLang: 'বাংলা' },
+  { question: "Cricket commentary, electrifying in Tamil", script: 'என்ன ஒரு ஆட்டம்!', scriptLang: 'தமிழ்' },
+  { question: "A grandmother's recipe, patient in Malayalam", script: 'ആദ്യം നെയ്യ് ചൂടാക്കുക', scriptLang: 'മലയാളം' },
+  { question: "A train announcement, unmistakable in Telugu", script: 'రైలు వచ్చేస్తోంది', scriptLang: 'తెలుగు' },
 ]
 
 export function Hero({ onExplore }: HeroProps) {
@@ -70,7 +70,7 @@ export function Hero({ onExplore }: HeroProps) {
         </div>
 
         <p className="text-warm-600 text-base md:text-lg mb-14 max-w-xl mx-auto leading-relaxed font-light">
-          Hear your words come alive in 11 Indian languages, 30+ voices, and countless emotions.
+          One story. Thirty voices. Eleven languages. Hear the emotion change with every word.
         </p>
 
         <button

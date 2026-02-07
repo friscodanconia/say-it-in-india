@@ -26,14 +26,14 @@ export interface Voice {
 }
 
 export const voices: Voice[] = [
-  { id: 'Shubh', label: 'Shubh' },
-  { id: 'Priya', label: 'Priya' },
-  { id: 'Kavya', label: 'Kavya' },
-  { id: 'Rahul', label: 'Rahul' },
-  { id: 'Shreya', label: 'Shreya' },
-  { id: 'Rohan', label: 'Rohan' },
-  { id: 'Neha', label: 'Neha' },
-  { id: 'Kabir', label: 'Kabir' },
-  { id: 'Ritu', label: 'Ritu' },
-  { id: 'Aditya', label: 'Aditya' },
+  { id: 'shubh', label: 'Shubh' },
+  { id: 'priya', label: 'Priya' },
+  { id: 'kavya', label: 'Kavya' },
+  { id: 'rahul', label: 'Rahul' },
+  { id: 'shreya', label: 'Shreya' },
+  { id: 'rohan', label: 'Rohan' },
+  { id: 'neha', label: 'Neha' },
+  { id: 'kabir', label: 'Kabir' },
+  { id: 'ritu', label: 'Ritu' },
+  { id: 'aditya', label: 'Aditya' },
 ]
