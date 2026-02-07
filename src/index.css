@@ -101,6 +101,34 @@ body {
   box-shadow: 0 20px 60px -20px rgba(0,0,0,0.4);
 }
 
+/* Scroll-triggered fade-in */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Voice stage entrance */
+@keyframes stageIn {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes stageInRight {
+  0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+.animate-stage-left {
+  animation: stageIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-stage-right {
+  animation: stageInRight 0.7s 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
 /* Selection color */
 ::selection {
   background: rgba(201, 165, 90, 0.3);

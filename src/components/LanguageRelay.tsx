@@ -157,26 +157,30 @@ export function LanguageRelay() {
       </div>
 
       {/* Language progress */}
-      <div className="flex items-center justify-center gap-3">
+      <div className="flex items-center justify-center gap-4">
         {languages.map((lang, i) => (
-          <div key={lang.code} className="flex flex-col items-center gap-1.5">
+          <div key={lang.code} className="flex flex-col items-center gap-2">
             <div
-              className={`w-2 h-2 rounded-full transition-all duration-500 ${
+              className={`rounded-full transition-all duration-500 ${
                 i === currentLangIndex
-                  ? `${lang.color} scale-150 shadow-lg`
+                  ? `w-3.5 h-3.5 ${lang.color} scale-110`
                   : i < currentLangIndex
-                  ? 'bg-warm-500/40'
-                  : 'bg-warm-900/30'
+                  ? 'w-2.5 h-2.5 bg-warm-500/50'
+                  : 'w-2.5 h-2.5 bg-warm-800/40'
               }`}
               style={i === currentLangIndex ? {
-                boxShadow: `0 0 12px 2px var(--tw-shadow-color, rgba(201, 165, 90, 0.3))`,
+                boxShadow: `0 0 16px 4px rgba(201, 165, 90, 0.35)`,
               } : undefined}
             />
-            {i === currentLangIndex && (
-              <span className="text-warm-400 text-[9px] tracking-wider uppercase font-body animate-fade-in">
-                {lang.name.slice(0, 3)}
-              </span>
-            )}
+            <span className={`text-[9px] tracking-wider uppercase font-body transition-all duration-300 ${
+              i === currentLangIndex
+                ? 'text-warm-300 opacity-100'
+                : i < currentLangIndex
+                ? 'text-warm-600/40 opacity-100'
+                : 'text-warm-800/30 opacity-100'
+            }`}>
+              {lang.name.slice(0, 3)}
+            </span>
           </div>
         ))}
       </div>

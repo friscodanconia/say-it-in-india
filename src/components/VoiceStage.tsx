@@ -92,7 +92,7 @@ export function VoiceStage({ scene, onBack }: VoiceStageProps) {
       <div className="max-w-6xl mx-auto px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
           {/* Left: Language + Voice selection */}
-          <div className="space-y-10">
+          <div className="space-y-10 animate-stage-left">
             {/* Language picker */}
             <div>
               <p className="text-warm-500 text-xs uppercase tracking-[0.2em] mb-5 font-body">Language</p>
@@ -144,7 +144,7 @@ export function VoiceStage({ scene, onBack }: VoiceStageProps) {
           </div>
 
           {/* Right: Text display + Play */}
-          <div className="space-y-8">
+          <div className="space-y-8 animate-stage-right">
             {/* Text display */}
             <div className="relative rounded-2xl bg-gradient-to-br from-surface-raised to-surface-overlay border border-warm-900/15 overflow-hidden">
               {/* Ambient glow */}
@@ -186,16 +186,16 @@ export function VoiceStage({ scene, onBack }: VoiceStageProps) {
             </button>
 
             {/* Play controls */}
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-4 mt-2">
               <button
                 onClick={isPlaying ? handleStop : handlePlay}
                 disabled={isLoading}
-                className={`group relative flex items-center gap-3 px-8 py-4 rounded-full text-sm font-body font-medium tracking-wide transition-all duration-500 overflow-hidden ${
+                className={`group relative flex items-center gap-3 px-10 py-4 rounded-full text-sm font-body font-medium tracking-wide transition-all duration-500 overflow-hidden ${
                   isLoading
-                    ? 'bg-warm-900/10 text-stone-600 cursor-wait'
+                    ? 'bg-warm-800/30 text-stone-500 cursor-wait'
                     : isPlaying
                     ? 'bg-red-500/10 text-red-300 hover:bg-red-500/15 ring-1 ring-red-500/20'
-                    : ''
+                    : 'shadow-[0_0_30px_rgba(201,165,90,0.12)]'
                 }`}
               >
                 {!isLoading && !isPlaying && (
@@ -214,7 +214,7 @@ export function VoiceStage({ scene, onBack }: VoiceStageProps) {
                     </>
                   ) : (
                     <>
-                      <svg className="w-4 h-4 text-surface" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-surface" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                       <span className="text-surface">Play in {langInfo?.name}</span>
@@ -243,7 +243,7 @@ export function VoiceStage({ scene, onBack }: VoiceStageProps) {
               {!useCustom && currentText && langInfo && (
                 <button
                   onClick={() => setShowPostcard(true)}
-                  className="ml-auto flex items-center gap-2 px-5 py-2.5 rounded-full text-xs text-stone-500 hover:text-warm-300 bg-warm-900/10 hover:bg-warm-900/20 transition-all duration-300 tracking-wider uppercase font-body"
+                  className="ml-auto flex items-center gap-2.5 px-6 py-3 rounded-full text-xs text-stone-400 hover:text-warm-300 bg-warm-900/20 hover:bg-warm-900/30 ring-1 ring-warm-900/20 hover:ring-warm-700/30 transition-all duration-300 tracking-wider uppercase font-body"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
