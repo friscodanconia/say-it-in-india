@@ -62,7 +62,7 @@ export function LanguageRelay() {
         const base64 = await synthesizeWithCache({
           text,
           languageCode: lang.code,
-          speaker: 'anushka',
+          speaker: 'Shubh',
           pace: 1.0,
           temperature: 0.6,
         })

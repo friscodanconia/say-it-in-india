@@ -11,7 +11,7 @@ export interface TTSOptions {
 }
 
 export async function synthesizeSpeech(options: TTSOptions): Promise<string> {
-  const { text, languageCode, speaker = 'anushka', pace = 1.0, temperature = 0.6 } = options
+  const { text, languageCode, speaker = 'Shubh', pace = 1.0, temperature = 0.6 } = options
 
   const response = await fetch(TTS_API_URL, {
     method: 'POST',
@@ -22,7 +22,7 @@ export async function synthesizeSpeech(options: TTSOptions): Promise<string> {
     body: JSON.stringify({
       text,
       target_language_code: languageCode,
-      model: 'bulbul:v2',
+      model: 'bulbul:v3',
       speaker,
       pace,
       temperature,
