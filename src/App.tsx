@@ -29,7 +29,7 @@ function useFadeIn() {
     return () => observerRef.current?.disconnect()
   }, [])
 
-  const setRef = useCallback((index: number) => (el: HTMLElement | null) => {
+  const setRef = useCallback((_index: number) => (el: HTMLElement | null) => {
     if (el && observerRef.current) {
       observerRef.current.observe(el)
     }

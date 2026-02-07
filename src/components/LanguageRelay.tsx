@@ -51,7 +51,7 @@ export function LanguageRelay() {
         }
         setCurrentTranslatedText(text)
       } else {
-        text = selectedPhrase.texts[lang.code]
+        text = (selectedPhrase.texts as Record<string, string>)[lang.code]
         setCurrentTranslatedText('')
       }
 
@@ -158,7 +158,7 @@ export function LanguageRelay() {
               {languages[currentLangIndex].nativeScript}
             </p>
             <p className="text-warm-700 text-lg font-light max-w-sm mx-auto leading-relaxed">
-              {useCustom ? (currentTranslatedText || customPhrase) : selectedPhrase.texts[languages[currentLangIndex].code]}
+              {useCustom ? (currentTranslatedText || customPhrase) : (selectedPhrase.texts as Record<string, string>)[languages[currentLangIndex].code]}
             </p>
           </div>
         ) : (
